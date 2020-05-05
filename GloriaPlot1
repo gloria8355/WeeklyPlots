@@ -1,0 +1,19 @@
+x = ['Jan'; 'Feb'; 'Mar'; 'Apr'; 'May'; 'Jun'; 'Jul'; 'Aug'; 'Sep'; 'Oct'; 'Nov'; 'Dec'];
+sumsumBrOutput = [[392.108500000000,80.8315000000000,1940.10930000000,2578.85320000000,2765.48580000000,2932.19010000000,2855.60300000000,2609.34390000000,1803.92990000000,1564.44310000000,376.285000000000,241.330200000000]];
+sumsumPVWatts = [[598.565327832000,504.564969555000,1584.10281224700,2395.06247533500,2631.20894560400,2673.62970902800,2751.57046339400,2622.83422788600,1957.53123362600,1375.88222038500,584.065670720000,468.807451501000]];
+bar(sumsumBrOutput,'y','EdgeColor','none','BarWidth',.9)
+set(gca,'xticklabel',x)
+hold on
+w=bar(sumsumPVWatts,'FaceColor',[0.1490    0.1490    0.1490],'EdgeColor','none','BarWidth',.9)
+hold off
+alpha(w,.2)
+ylim([0 3000])
+title({'Brooks 2019 Output vs. NREL''s PVWatts Modeled Output';''})
+ylabel('Output (MWh/Month)') 
+xlabel('Month') 
+ax=gca;
+ax.FontSize=12;
+set(gca,'fontname','Times New Roman') 
+legend('Brooks','PVWatts')
+legend('Location','best')
+legend boxoff 
