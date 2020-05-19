@@ -1,0 +1,48 @@
+data=[22754.5
+22374.1
+23929.1
+24507.1
+23474.8
+22716.6
+22806.8
+23854.4
+23030.8
+22965.5
+23654.8
+23757.3
+21671.8
+22386.9
+21464.9
+22389.1
+22932.9
+23751.8
+25552.3
+25299.5
+22861.8
+];
+
+
+step = 1;
+bins = min(data):step:max(data);
+dist = hist(data, bins);
+
+ndist = dist / sum(dist);
+
+cdist = cumsum(ndist);
+plot(bins, cdist);
+grid on
+ylim([0 1])
+xlim([21000 26000])
+xticks([21000:1000:26000])
+xlabel('Annual AC Energy (MWh)') 
+ylabel('Cumulative Probability') 
+
+%histogram(data, bins)
+
+title({'Brooks PV Plant Annual Output Variability';'From 1998 to 2018, Tilt Angle = 25°'}, 'FontSize', 15)
+
+plot(cfd(pd,data))
+histfit(data,sum(dist))
+
+
+
